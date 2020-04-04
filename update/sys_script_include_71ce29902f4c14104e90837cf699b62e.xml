@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.MailReader</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>MailReader</name>
+        <script><![CDATA[var MailReader = Class.create();
+MailReader.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getMail: function() {
+        try {
+            gs.info("-----TT-------1 getMail gs.isInteractive())=" + gs.isInteractive());
+            var userId = this.getParameter('sysparm_vikiUserId');
+            gs.info("-----TT-------2 userId = " + userId);
+            var gr = new GlideRecord('sys_user');
+
+            var user = gr.get(userId);
+            gs.info("-----TT-------3 user = " + user);
+            gs.info("-----TT-------4  user.email  = " + gr.email);
+			
+			var u = new MathUtils();
+            return gr.email + '_' + u.inc(7);
+        } catch (err) {
+			gs.error(err);
+        }
+    },
+
+    type: 'MailReader'
+});
+
+// var GetEmailAddress = Class.create();
+// // Extend the global.AbstractAjaxProcessor class
+// GetEmailAddress.prototype = Object.extendsObject(global.AbstractAjaxProcessor,{
+// 	// Define the getEmail function.  
+// 	// Create a GlideRecord for the User table.
+// 	// Use the sysparm_userID passed from the client side to retrieve a record from the User table.
+// 	// Return the email address for the requested record
+// 	getEmail: function() {
+// 		var userRecord = new GlideRecord("sys_user");
+// 		userRecord.get(this.getParameter('sysparm_userID'));
+// 		return userRecord.email + '';
+// 	},
+// 	type: 'GetEmailAddress'
+// });]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-04 09:59:28</sys_created_on>
+        <sys_id>71ce29902f4c14104e90837cf699b62e</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>MailReader</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_71ce29902f4c14104e90837cf699b62e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-04 12:35:33</sys_updated_on>
+    </sys_script_include>
+</record_update>

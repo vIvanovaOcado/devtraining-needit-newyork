@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.InputValidator</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Input validate</description>
+        <name>InputValidator</name>
+        <script><![CDATA[var InputValidator = Class.create();
+InputValidator.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    isValidEmail: function() {
+        gs.warn("VV--1--SERVER----- in isValidEmail");
+        var mail = this.getParameter('sysparm_mail');
+
+        gs.warn("VV--2--SERVER----- in mail [" + mail + "]");
+        var res = mail.contains('@');
+
+        gs.warn("VV--3---SERVER---- in res [" + res + "]");
+        return res;
+    },
+
+    type: 'InputValidator'
+
+});
+
+// var InputValidator = Class.create();
+// InputValidator.prototype = {
+
+// 	initialize: function() {
+
+// 	},
+
+//     validateEmail: function(mail) {
+//         mail = mail + '';
+//         return mail.contains('@');
+//     },
+
+//     type: 'InputValidator'
+// };]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-04 04:23:32</sys_created_on>
+        <sys_id>7a2f58582f0814104e90837cf699b6dc</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>InputValidator</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_7a2f58582f0814104e90837cf699b6dc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-04 09:30:30</sys_updated_on>
+    </sys_script_include>
+</record_update>
